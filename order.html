@@ -119,6 +119,10 @@
                             <button type="submit" class="btn btn-primary" :disabled="invalid">送出表單</button>
                         </form>
                     </validation-observer>
+                    <div class="py-3">
+                        <button type="button" class="btn btn-primary" @click="getOrder" >button</button>
+
+                    </div>
 
                 </div>
             </div>
@@ -186,22 +190,33 @@
             methods: {
                 submitForm() {
                     //新增一筆訂單 POST api/{uuid}/ec/orders
-                    let vm = this;
-                    vm.isLoading=true;
-                    const url= `${vm.user.path}/api/${vm.user.uuid}/ec/orders`;
+                    // let vm = this;
+                    // this.isLoading=true;
+                    // const url= `${this.user.path}/api/${this.user.uuid}/ec/orders`;
                 
-                    axios.post(url, vm.customer)
-                    .then((response) => {
-                        if (response.data.data.id) {
-                            vm.isLoading = false;
-                            console.log('success');
-                        }
-                    })
-                    .catch((error) => {
-                        vm.isLoading = false;
-                        console.log(error.response.data.errors);
-                    });
-                }
+                    // axios.post(url, this.customer)
+                    // .then((response) => {
+                    //     if (response.data.data.id) {
+                    //         this.isLoading = false;
+                    //         console.log('success');
+                    //     }
+                    // })
+                    // .catch((error) => {
+                    //     this.isLoading = false;
+                    //     console.log('error');
+                    // });
+                    console.log('表單已送出');
+                
+                },
+                // getOrder(){
+                //     //GET api/{uuid}/ec/orders
+                //     const url= `${this.user.path}/api/${this.user.uuid}/ec/orders`;
+                //     axios.get(url)
+                //     .then((res) =>{
+                //     console.log(res);
+                //     console.log('success');
+                //     });
+                // }
             }
         })
     </script>
